@@ -9,4 +9,9 @@ export class StopController {
   async getStop(@Param('stop_id') stop_id: number) {
     return this.stopService.stop(stop_id);
   }
+
+  @Get('')
+  async getAllStops() {
+    return this.stopService.all();
+  }
 }

@@ -18,9 +18,9 @@ export class StopService {
   }
 
   async all() {
-    const stops = await this.prisma.stop.findMany();
-
-    console.log(stops);
+    const stops = await this.prisma.stop.findMany({
+      take: 100,
+    });
     return stops;
   }
 }

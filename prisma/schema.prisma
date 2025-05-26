@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../gtfs.sqlite"
+}
+
+model Stop {
+  stop_id        Int     @unique
+  stop_code      Int
+  stop_name      String
+  stop_desc      String?
+  stop_lat       Float
+  stop_lon       Float
+  location_type  Int?
+  parent_station Int?
+  zone_id        Int?
+
+  @@map("stops")
+}
+
+// model Agency {
+//   agency_id       Int     @unique
+//   agency_name     String
+//   agency_url      String?
+//   agency_timezone String
+//   agency_lang     String?
+//   agency_phone    String?
+//   agency_fare_url String?
+
+//   @@map("agencies")
+// }
+
+// model Fare {
+//   fare_id           Int    @unique
+//   price             Float
+//   currency_type     String
+//   payment_method    Int?
+//   transfers         Int?
+//   agency_id         Int?
+//   transfer_duration Int?
+
+//   @@map("fares")
+// }
+
+// model Route {
+//   route_id         Int     @unique
+//   agency_id        Int
+//   route_short_name String?
+//   route_long_name  String
+//   route_desc       String?
+//   route_type       Int?
+//   route_color      String?
+
+//   @@map("routes")
+// }
+
+// model Translation {
+//   trans_id    String  @unique
+//   lang        String
+//   translation String?
+
+//   @@map("translations")
+// }
